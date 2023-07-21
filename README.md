@@ -4,7 +4,7 @@
 
 | Nome                               | RA          |
 |------------------------------------|-------------|
-| Daniel Burba                       | XXXXXXXXXXX |
+| Daniel Burba                       | 11202020738 |
 | Islan Damaceno                     | XXXXXXXXXXX |
 | Leonardo dos Santos                | 11201922251 |
 | Matheus Augusto C de Oliveira      | 11201721710 |
