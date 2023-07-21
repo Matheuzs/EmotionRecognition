@@ -9,7 +9,7 @@
 | Leonardo dos Santos                | XXXXXXXXXXX |
 | Matheus Augusto C de Oliveira      | 11201721710 |
 | Tiago Alves Pereira                | XXXXXXXXXXX |
-| Winicius Pontes                    | XXXXXXXXXXX |
+| Winicius Pontes                    | 11201810196 |
 
 ## Descrição do Projeto:
 
@@ -22,4 +22,30 @@ O Projeto tem como objetivo desenvolver um modelo de Machine Learning capaz de c
 * OpenCV para processamento das imagens;
 * Algumas bibliotecas auxiliares, como NumPy e Pandas, para manipulação de dados.
 
+
 ## Detalhamento do Código:
+- Importação das bibliotecas.
+- Divisão dos dados entre teste, treino e validação.
+- Construção da arquitetura da rede neural.
+- Metrificação da acurácia do nosso modelo. 
+- Tunning do hiperparametros, caso necessário.
+- Export da rede neural para que não haja a necessidade de ficar treinando o modelo sempre que for utilizar
+- Export da estrutura em json para que outras pessoas possam se inspirar na arquitetura
+
+
+## Próximos passos:
+- Teste com diversas fotos 
+- Teste com vídeos em tempo real
+- Teste com outras arquiteturas para melhorar as métricas estabelecidas
+- Teste com outras bibliotecas Pytorch (talvez)
+
+
+
+
+### Exemplo de uso:
+
+
+![Texto alternativo](./output.png)
+
+
+
