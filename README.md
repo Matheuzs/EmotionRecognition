@@ -6,7 +6,7 @@
 |------------------------------------|-------------|
 | Daniel Burba                       | XXXXXXXXXXX |
 | Islan Damaceno                     | XXXXXXXXXXX |
-| Leonardo dos Santos                | XXXXXXXXXXX |
+| Leonardo dos Santos                | 11201922251 |
 | Matheus Augusto C de Oliveira      | 11201721710 |
 | Tiago Alves Pereira                | 11201811051 |
 | Winicius Pontes                    | 11201810196 |
