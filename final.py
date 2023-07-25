@@ -10,7 +10,7 @@ import os
 
 #Carregnado o modelo treinado
 
-model = load_model('./modelo_02_expressoes.h5')
+model = load_model('./modelo_treinado.h5')
 
 arquivo_video = "video_filme.mp4"
 cap = cv2.VideoCapture(arquivo_video)

@@ -34,8 +34,8 @@ faces = normalizar(faces)
 #Precisamos fazer o ohe das emoções para termos um vetor com 0 e 1 (1 para a emoção)
 emocoes = pd.get_dummies(data['emotion']).values
 
-x_treino, x_teste,y_treino, y_teste = train_test_split(faces, emocoes, test_size = 0.1, random_state = 42)
-x_treino, x_val, y_treino, y_val = train_test_split(x_treino, y_treino, test_size = 0.1, random_state = 41)
+x_treino, x_teste,y_treino, y_teste = train_test_split(faces, emocoes, test_size = 0.3, random_state = 42)
+x_treino, x_val, y_treino, y_val = train_test_split(x_treino, y_treino, test_size = 0.3, random_state = 41)
 
 
 #Montando a arquitetura rede neural
@@ -45,8 +45,11 @@ batch_size =64
 epochs = 100
 width, height = 48,48
 
+#Criação da rede neural
 model = Sequential()
 
+
+#Primeira camada de convolução
 model.add(Conv2D(n_features, kernel_size=(3,3), activation='relu',
                  input_shape=(width, height, 1), data_format = 'channels_last',
                  kernel_regularizer = l2(0.01)))
@@ -55,6 +58,8 @@ model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
 model.add(Dropout(0.5))
 
+
+#Segunda camada de convolução
 model.add(Conv2D(2*n_features, kernel_size=(3,3), activation='relu', padding='same'))
 model.add(BatchNormalization())
 model.add(Conv2D(2*n_features, kernel_size=(3,3), activation='relu', padding='same'))
@@ -62,6 +67,8 @@ model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
 model.add(Dropout(0.5))
 
+
+#Terceira camada de convolução
 model.add(Conv2D(2*2*n_features, kernel_size=(3,3), activation='relu', padding='same'))
 model.add(BatchNormalization())
 model.add(Conv2D(2*2*n_features, kernel_size=(3,3), activation='relu', padding='same'))
@@ -69,6 +76,8 @@ model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
 model.add(Dropout(0.5))
 
+
+#Quarta camada de convolução
 model.add(Conv2D(2*2*2*n_features, kernel_size=(3,3), activation='relu', padding='same'))
 model.add(BatchNormalization())
 model.add(Conv2D(2*2*2*n_features, kernel_size=(3,3), activation='relu', padding='same'))
@@ -76,17 +85,19 @@ model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size=(2,2), strides=(2,2)))
 model.add(Dropout(0.5))
 
+#Flatten
 model.add(Flatten())
-
+#Camada densa
 model.add(Dense(2*2*2*n_features, activation='relu'))
 model.add(Dropout(0.4))
 model.add(Dense(2*2*n_features, activation='relu'))
-model.add(Dropout(0.4))
+model.add(Dropout(0.4)) 
 model.add(Dense(2*n_features, activation='relu'))
 model.add(Dropout(0.5))
 
 model.add(Dense(n_labels, activation = 'softmax')) #numero de saida precisa ser igual ao numero de classes
 
+#Compilando o modelo feito
 model.summary()
 
 
@@ -97,8 +108,8 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy']
               )
 
-arquivo_modelo = 'modelo_01_expressoes.h5'
-arquivo_modelo_json = 'modelo_01_expressoes.json'
+arquivo_modelo = 'modelo_treinado.h5'
+arquivo_modelo_json = 'modelo_treinado.json' #arquitetura do modelo
 
 lr_reducer = ReduceLROnPlateau(monitor='val_loss', factor=0.9, patience=3, verbose=1)
 
@@ -108,12 +119,10 @@ checkpointer = ModelCheckpoint(arquivo_modelo, monitor = 'val_loss', verbose=1, 
 
 
 
-
+#Escrita do modelo em json
 model_json = model.to_json()
 with open(arquivo_modelo_json, 'w') as json_file:
     json_file.write(model_json)
-
-
 
 
 
@@ -127,3 +136,4 @@ history = model.fit(np.array(x_treino),
                     validation_data = (np.array(x_val), np.array(y_val)),
                     shuffle=True,
                     callbacks=[lr_reducer, early_stopper, checkpointer])
+
