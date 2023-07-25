@@ -31,8 +31,7 @@ nome_video = 'video_analisado.avi'
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 fps = 24
 saida_video = cv2.VideoWriter(nome_video, fourcc, fps, (video_largura, video_altura))
-'
-haarcascade_faces = './suporte.xml''
+haarcascade_faces = './suporte.xml'
 fonte_pequena, fonte_media = 0.4, 0.7
 fonte = cv2.FONT_HERSHEY_SIMPLEX
 expressoes = ['raiva', 'nojo', 'medo', 'feliz', 'triste', 'surpreso', 'neutro']
