@@ -5,7 +5,6 @@
 | Nome                               | RA          |
 |------------------------------------|-------------|
 | Daniel Burba                       | 11202020738 |
-| Islan Damaceno                     | XXXXXXXXXXX |
 | Leonardo dos Santos                | 11201922251 |
 | Matheus Augusto C de Oliveira      | 11201721710 |
 | Tiago Alves Pereira                | 11201811051 |
@@ -31,15 +30,6 @@ O Projeto tem como objetivo desenvolver um modelo de Machine Learning capaz de c
 - Tunning do hiperparametros, caso necessário.
 - Export da rede neural para que não haja a necessidade de ficar treinando o modelo sempre que for utilizar
 - Export da estrutura em json para que outras pessoas possam se inspirar na arquitetura
-
-
-## Próximos passos:
-- Teste com diversas fotos 
-- Teste com vídeos em tempo real
-- Teste com outras arquiteturas para melhorar as métricas estabelecidas
-- Teste com outras bibliotecas Pytorch (talvez)
-
-
 
 
 ### Exemplo de uso:
