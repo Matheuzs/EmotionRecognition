@@ -16,6 +16,7 @@ O Projeto tem como objetivo desenvolver um modelo de Machine Learning capaz de c
 
 ## Referencias e Tecnologias Utilizadas:
 
+* Dataset Utilizado: [https://www.kaggle.com/datasets/msambare/fer2013](https://www.kaggle.com/datasets/msambare/fer2013)
 * Python como a linguagem de programação;
 * TensorFlow para construir e treinar o modelo;
 * OpenCV para processamento das imagens;
